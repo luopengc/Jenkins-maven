@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.mvn</groupId>
@@ -116,11 +116,7 @@
       <artifactId>c3p0</artifactId>
       <version>0.9.1.2</version>
     </dependency>
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
-      <version>1.8.1</version>
-    </dependency>
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
@@ -176,11 +172,11 @@
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>com.alibaba</groupId>-->
-<!--      <artifactId>fastjson</artifactId>-->
-<!--      <version>1.1.41</version>-->
-<!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>com.alibaba</groupId>-->
+    <!--      <artifactId>fastjson</artifactId>-->
+    <!--      <version>1.1.41</version>-->
+    <!--    </dependency>-->
     <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
     <dependency>
       <groupId>com.alibaba</groupId>
@@ -233,23 +229,6 @@
       <version>1.5.0</version>
     </dependency>
 
-
-
-    <dependency>
-      <groupId>net.sourceforge.cglib</groupId>
-      <artifactId>com.springsource.net.sf.cglib</artifactId>
-      <version>2.2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.aopalliance</groupId>
-      <artifactId>com.springsource.org.aopalliance</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>com.springsource.org.aspectj.weaver</artifactId>
-      <version>1.6.4.RELEASE</version>
-    </dependency>
     <dependency>
       <groupId>commons-beanutils</groupId>
       <artifactId>commons-beanutils</artifactId>
@@ -286,11 +265,11 @@
       <artifactId>mchange-commons-java</artifactId>
       <version>0.2.3.4</version>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>dom4j</groupId>-->
-<!--      <artifactId>dom4j</artifactId>-->
-<!--      <version>1.6</version>-->
-<!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>dom4j</groupId>-->
+    <!--      <artifactId>dom4j</artifactId>-->
+    <!--      <version>1.6</version>-->
+    <!--    </dependency>-->
     <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
     <dependency>
       <groupId>dom4j</groupId>
@@ -356,6 +335,51 @@
       <version>2.6.0</version>
     </dependency>
   </dependencies>
+
+
+  <repositories>
+
+    <repository>
+      <id>nexus</id>
+      <name>Nexus Snapshot Repository</name>
+      <url>http://192.168.1.56:8081/repository/maven-public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+
+  <!-- 配置远程发布到私服，mvn deploy -->
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <name>Nexus Release Repository</name>
+      <url>http://192.168.1.56:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Nexus Snapshot Repository</name>
+      <url>http://192.168.1.56:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <!--   <distributionManagement>
+      <repository>
+        <id>releases</id>
+        <name>Nexus Release Repository</name>
+        <url>http://192.168.1.53:8083/repository/maven-releases/</url>
+      </repository>
+
+      <snapshotRepository>
+        <id>snapshots</id>
+        <name>Nexus Snapshot Repository</name>
+        <url>http://192.168.1.53:8083/repository/maven-snapshots/</url>
+      </snapshotRepository>
+    </distributionManagement>
+   -->
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
